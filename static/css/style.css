@@ -1,0 +1,23 @@
+@import "reset.css";
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(35, 35, 35);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+canvas {
+    overflow:hidden;
+    display: block;
+    width: 100%;
+    height: auto;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    touch-action: none;
+}
+
