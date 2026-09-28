@@ -1,4 +1,4 @@
 
 export function imagePath(path) {
-    return `/res/img/${path}`
+    return `img/${path}`
 }
