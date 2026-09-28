@@ -35,7 +35,7 @@ export class Transition {
 }
 
 export class GridTransition extends Transition {
-    constructor(duration = 20,row = 7,column = 5) {
+    constructor(duration = 30,row = 7,column = 5) {
         super(duration)
         this.row = row
         this.column = column

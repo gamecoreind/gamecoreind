@@ -6,7 +6,7 @@ import { display , displayRect } from "../root.js"
 import { Rect } from "../engine/rect.js"
 import { openingScene, showDialogueButton, textDialogue } from "./opening.js"
 import { GridTransition } from "../engine/transition.js"
-import { Surface } from "../engine/surface.js"
+import { audio } from "../audio.js"
 
 export const transitiongrid = new GridTransition()
 display.sceneTransition = transitiongrid
@@ -14,6 +14,7 @@ const startButton = new UIButton(
     Sprites.ui.startButton.default,
     new Rect(0,500,700,300),
     () => {
+        audio.transition.play()
         openingScene.startEvent = () => {
             display.addProcess("toOpening",() => {
                 if (transitiongrid.finish) {

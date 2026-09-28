@@ -16,7 +16,7 @@ const textGuideIngredients = [
     "pertama masukkan tepung terigu", // 0 , 1
     "kedua masukkan telur",           // 1 , 2
     "lalu masukkan gula pasir",       // 2 , 3
-    "setelah itu masukkan santan",    // 3 , 4
+    "setelah itu masukkan santan kelapa",    // 3 , 4
     "dan lalu tambahkan pandan",      // 4 , 5
     "mari kita aduk hingga merata"    // 5 , 6
 ]
