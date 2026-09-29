@@ -32,7 +32,7 @@ class Bowl extends UIObject {
         this.stir = {
             to : "right",
             mode : false,
-            roundMax : 5,
+            roundMax : 3,
             currentRound : 0,
         }
         this.finish = false
