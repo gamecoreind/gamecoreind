@@ -1,3 +1,4 @@
+import { audio } from "../audio.js";
 import { Input } from "../engine/event.js";
 import { NodeGroup, NodeObject } from "../engine/node.js";
 import { Rect } from "../engine/rect.js";
@@ -68,6 +69,7 @@ moldScene.startEvent = () => {
     display.addProcess("putInMold",() => {
         if (moldRect.colliderect(bowl.rect) && !finish) {
             finish = true
+            audio.correct.play()
             textGuide.rewrite("ayo lanjut untuk memanggang bolu kemojo!")
 
             bowl.rotation.value = 1

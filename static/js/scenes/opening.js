@@ -5,6 +5,7 @@ import { Sprites } from "../sprites.js"
 import { displayRect , nextSceneButton } from "../root.js"
 import { Rect } from "../engine/rect.js"
 import { doughScene } from "./dough.js"
+import { audio, playOverlap } from "../audio.js"
 
 export const kitchenBG = new NodeObject(Sprites.bg.kitchen,displayRect)
 
@@ -55,6 +56,7 @@ nextButton.rect.right = textDialogue.rect.right
 nextButton.rect.centery = dialogButtonY
 
 prevButton.event.mouseup = () => {
+    playOverlap(audio.dialogueButton)
     if (dialogIndex <= 0) {
         prevButton.hide()
         return
@@ -68,6 +70,7 @@ prevButton.event.mouseup = () => {
 }
 
 nextButton.event.mouseup = () => {
+    playOverlap(audio.dialogueButton)
     if (dialogIndex >= dialog.length - 1) {
         nextButton.hide()
         return

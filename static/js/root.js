@@ -1,3 +1,4 @@
+import { audio , playOverlap} from "./audio.js"
 import { Display } from "./engine/display.js"
 import { Vector2 } from "./engine/math.js"
 import { Rect } from "./engine/rect.js"
@@ -36,6 +37,7 @@ class NextSceneButton extends UIButton {
         this.hide()
     }
     nextSceneFunction() {
+        playOverlap(audio.transition)
         display.scene = this.nextScene
         if (this.resetWhenClicked) {
             this.hide()

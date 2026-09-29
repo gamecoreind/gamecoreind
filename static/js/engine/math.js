@@ -118,4 +118,7 @@ export class Random {
         }
         return array;
     }
+    static choice(array) {
+        return Random.shuffle(array)[0]
+    }
 }

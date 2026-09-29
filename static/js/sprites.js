@@ -33,12 +33,20 @@ export const Sprites = {
             press: await loadImage(imagePath("ui/next/press.png")),
         },
         bakeButton: await loadImage(imagePath("ui/bake.png")),
-        opt_2: await loadImage(imagePath("ui/opt_2.png")),
-        opt_4: await loadImage(imagePath("ui/opt_4.png")),
-        opt_8: await loadImage(imagePath("ui/opt_8.png")),
         logo : await loadImage(imagePath("ui/logo.png")),
         back : await loadImage(imagePath("ui/back.png"))
 
+    },
+    numbers:{
+        1:await loadImage(imagePath('numbers/1.png')),
+        2:await loadImage(imagePath('numbers/2.png')),
+        3:await loadImage(imagePath('numbers/3.png')),
+        4:await loadImage(imagePath('numbers/4.png')),
+        5:await loadImage(imagePath('numbers/5.png')),
+        6:await loadImage(imagePath('numbers/6.png')),
+        7:await loadImage(imagePath('numbers/7.png')),
+        8:await loadImage(imagePath('numbers/8.png')),
+        9:await loadImage(imagePath('numbers/9.png')),
     },
     dialog:{
         char_text: await loadImage(imagePath("dialog/char_text.png")),

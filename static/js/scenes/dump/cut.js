@@ -1,11 +1,11 @@
-import { Random } from "../engine/math.js";
-import { NodeGroup, NodeObject } from "../engine/node.js";
-import { Rect } from "../engine/rect.js";
-import { Scene } from "../engine/scene.js";
-import { UIButton, UITextView } from "../engine/ui.js";
-import { display, displayRect, nextSceneButton } from "../root.js";
-import { Sprites } from "../sprites.js";
-import { endingScene } from "./ending.js";
+import { Random } from "../../engine/math.js";
+import { NodeGroup, NodeObject } from "../../engine/node.js";
+import { Rect } from "../../engine/rect.js";
+import { Scene } from "../../engine/scene.js";
+import { UIButton, UITextView } from "../../engine/ui.js";
+import { display, displayRect, nextSceneButton } from "../../root.js";
+import { Sprites } from "../../sprites.js";
+import { endingScene } from "../ending.js";
 
 const options = [2,4,8]
 const optRequest = Random.shuffle(options)[0]

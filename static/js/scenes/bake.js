@@ -1,3 +1,4 @@
+import { audio , playOverlap } from "../audio.js";
 import { Input } from "../engine/event.js";
 import { NodeGroup, NodeObject } from "../engine/node.js";
 import { Rect } from "../engine/rect.js";
@@ -5,7 +6,7 @@ import { Scene } from "../engine/scene.js";
 import { UIObject, UITextView } from "../engine/ui.js";
 import { display, displayRect, nextSceneButton } from "../root.js";
 import { Sprites } from "../sprites.js";
-import { cuttingScene } from "./cut.js";
+import { cuttingScene } from "./cutv2.js";
 
 
 const bakeSceneDisplay = new NodeObject(Sprites.bg.baking.oven[0],displayRect.copy())
@@ -107,6 +108,9 @@ function bakeProcessScene() {
     })
 
     display.addProcess("bakeButtonSpawn", () => {
+        if (oven.cookProcess || oven.alreadyCook) {
+            return
+        }
         if (bakeButton.spawn && bakeButton.rect.centery > displayRect.centery + 100) {
             bakeButton.rect.y -= bakeButton.spawnSpeed
             bakeButton.spawnSpeed *= 0.9
@@ -128,6 +132,7 @@ function bakeProcessScene() {
         // finish
         if (oven.finish) {
             if (!oven.doorOpened && oven.clicked) {
+                playOverlap(audio.ovenClick)
                 oven.doorOpened = true
             } else if (oven.doorOpened) {
                 if (!readyView.spawn) {
@@ -148,6 +153,7 @@ function bakeProcessScene() {
         if (oven.cookProcess && oven.alreadyCook) {
             // cooked
             if (oven.cookCurrentDuration <= 0) {
+                audio.ovenReady.play()
                 oven.cookCurrentDuration = 0
                 oven.cookProcess = false 
                 oven.finish = true
@@ -177,6 +183,7 @@ function bakeProcessScene() {
 
         // open the door
         } else if (!oven.doorOpened && !oven.moldPlaced && oven.clicked && !moldStats.grabbed && sceneStart > 10) {
+            playOverlap(audio.ovenClick)
             oven.doorOpened = true
 
             oven.scene++
@@ -184,6 +191,7 @@ function bakeProcessScene() {
 
         // put the fucking mold
         } else if (oven.doorOpened && !oven.moldPlaced && oven.moldDetectRect.colliderect(mold.rect) && oven.clicked) {
+            playOverlap(audio.ovenClick)
             oven.moldPlaced = true
             const i = bakeSceneGroup.nodes.indexOf(mold)
             bakeSceneGroup.nodes.splice(i,1)
@@ -193,6 +201,7 @@ function bakeProcessScene() {
         
         // close the door
         } else if (oven.doorOpened && oven.moldPlaced && oven.clicked && !mold.grabbed) {
+            playOverlap(audio.ovenClick)
             bakeButton.spawn = true
             oven.doorOpened = false
             oven.scene++
@@ -200,6 +209,7 @@ function bakeProcessScene() {
 
         // turn on the oven
         } else if (!oven.doorOpened && oven.moldPlaced && bakeButton.clicked) {
+            audio.ovenStart.play()
             bakeButton.rect.top = displayRect.bottom
             oven.cookCurrentDuration = oven.cookDuration
             oven.alreadyCook = true

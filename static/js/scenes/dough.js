@@ -1,3 +1,4 @@
+import { audio, playOverlap } from "../audio.js";
 import { Input } from "../engine/event.js";
 import { Random } from "../engine/math.js";
 import { NodeGroup, NodeObject } from "../engine/node.js";
@@ -48,6 +49,7 @@ class Bowl extends UIObject {
         }
         // dough
         if (this.stir.currentRound >= this.stir.roundMax) {
+            playOverlap(audio.correctItem)
             this.sprite = Sprites.item.bowl.dough
             textGuideSpawnAnimation()
             textGuide.rect.y -= 20
@@ -190,6 +192,7 @@ function putIngredients() {
                     selected = null
                 }
                 bowl.nextStep()
+                playOverlap(audio.correctItem)
             }
         } else {
             item.rect.midbottom = item.originPos

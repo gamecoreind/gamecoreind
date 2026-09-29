@@ -1,3 +1,4 @@
+import { audio, playOverlap } from "../audio.js";
 import { NodeGroup, NodeObject } from "../engine/node.js";
 import { Rect } from "../engine/rect.js";
 import { Scene } from "../engine/scene.js";
@@ -27,6 +28,7 @@ nextButton.event.noevent = () => {
     nextButton.color = textcolor
 }
 nextButton.event.mouseup = () => {
+    playOverlap(audio.dialogueButton)
     dialogIndex++
     textDialogue.rewrite(dialogue[dialogIndex])
 }
@@ -41,6 +43,7 @@ prevButton.event.noevent = () => {
     prevButton.color = textcolor
 }
 prevButton.event.mouseup = () => {
+    playOverlap(audio.dialogueButton)
     dialogIndex--
     textDialogue.rewrite(dialogue[dialogIndex])
 }
