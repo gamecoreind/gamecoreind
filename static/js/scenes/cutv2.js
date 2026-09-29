@@ -61,13 +61,13 @@ const gap = 1.4
 const buttonOptions = new NodeGroup([])
 
 for (let i=0;i<3;i++) {
-    const btn = new UIButton(Sprites.numbers[0], new Rect(displayRect.centerx + 100,displayRect.centery + 200,buttonSize,buttonSize))
+    const btn = new UIButton(Sprites.numbers[0], new Rect(displayRect.centerx + 100,displayRect.centery,buttonSize,buttonSize))
     btn.rect.x += (btn.rect.w * gap) * buttonOptions.nodes.length
     btn.event.hover = () => {
-        if (btn.rect.y > displayRect.centery + 180) {btn.rect.y -= 10}
+        if (btn.rect.y > displayRect.centery + 20) {btn.rect.y -= 10}
     }
     btn.event.noevent = () => {
-        if (btn.rect.y < displayRect.centery + 200) {btn.rect.y += 10}
+        if (btn.rect.y < displayRect.centery + 40) {btn.rect.y += 10}
     }
     btn.event.mouseup = () => {
         if (btn.value === getOptionRequest()) {

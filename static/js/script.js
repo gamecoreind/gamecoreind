@@ -7,5 +7,5 @@ import { startScene } from "./scenes/start.js"
 
 // Game Run
 
-display.scene =startScene
+display.scene = startScene
 display.run()

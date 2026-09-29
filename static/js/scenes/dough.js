@@ -171,7 +171,7 @@ let selected = null
 const items = new NodeGroup([])
 items.ySort = true
 const itemPosition = [
-    [300, 900],[574, 900],[438, 1000],
+    [200, 900],[570, 900],[350, 1000],
     [1334, 900],[1794, 900],[1538, 1000]
 ]
 for (const [index , item] of itemData.entries()) {
