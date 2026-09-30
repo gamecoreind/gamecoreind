@@ -149,7 +149,7 @@ display.addProcess("stir",() => {
 })
 
 const itemPlacer = bowl.rect.copy()
-itemPlacer.inflate(-130,-130)
+itemPlacer.inflate(-250,-250)
 
 bowl.rect.centerx = table.rect.centerx,
 display.addProcess("bowlOnTable",() => {
