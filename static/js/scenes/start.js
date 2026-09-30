@@ -14,7 +14,8 @@ const startButton = new UIButton(
     Sprites.ui.startButton.default,
     new Rect(0,500,700,300),
     () => {
-        playOverlap(audio.transition)
+        bgmButton.play()
+        //playOverlap(audio.transition)
         openingScene.startEvent = () => {
             display.addProcess("toOpening",() => {
                 if (transitiongrid.finish) {
@@ -61,6 +62,6 @@ const creditText = new UITextView(new Rect(logo.rect.right + 20,credit.rect.y + 
 */
 
 //const startSceneNodes = new NodeGroup([startButton,credit,logo,creditText])
-const startSceneNodes = new NodeGroup([startButton,bgmButton])
+const startSceneNodes = new NodeGroup([startButton])
 export const startScene = new Scene([startSceneNodes],Sprites.bg.start)
 
