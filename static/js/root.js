@@ -72,6 +72,7 @@ class BGMButton extends UIObject {
     constructor() {
         super(Sprites.ui.bgm.play,new Rect(20,20,150,150))
         this.bgm = new Audio("/static/res/bgm/bgm_0.mp3")
+        this.bgm.muted = true
         this.bgm.loop = true
         this.play()
         this.event.mouseup = () => {
