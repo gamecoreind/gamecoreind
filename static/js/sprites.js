@@ -38,7 +38,8 @@ export const Sprites = {
         },
         bakeButton: await loadImage(imagePath("ui/bake.png")),
         logo : await loadImage(imagePath("ui/logo.png")),
-        back : await loadImage(imagePath("ui/back.png"))
+        back : await loadImage(imagePath("ui/back.png")),
+        pointing : await loadImage(imagePath("ui/pointing.png")),
 
 
     },

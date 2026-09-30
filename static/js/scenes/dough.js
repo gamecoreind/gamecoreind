@@ -21,13 +21,12 @@ const textGuideIngredients = [
     "dan lalu tambahkan pandan",      // 4 , 5
     "mari kita aduk hingga merata"    // 5 , 6
 ]
-const textGuideStir = "mari kita aduk hingga merata"
+const textGuideStir = "tekan untuk mengaduk"
 const textGuideDoughReady = "selesai pembuatan adonan mari kita pindahkan ke cetakan"
 
 class Bowl extends UIObject {
     constructor(sprite,rect) {
         super(sprite,rect)
-
         this.scale.enable = true
         this.stir = {
             to : "right",
@@ -36,7 +35,6 @@ class Bowl extends UIObject {
             currentRound : 0,
         }
         this.finish = false
-
         this.event.mouseup = () => {
             if (this.stir.mode) {
                 this.nextStep()
@@ -119,6 +117,26 @@ class Item extends UIObject {
 }
 
 const bowl = new Bowl(Sprites.item.bowl.doughing[0],new Rect(0,0,400,400))
+
+const pointingClick2Stir = new NodeObject(Sprites.ui.pointing,new Rect(0,0,100,100))
+pointingClick2Stir.rect.right = displayRect.centerx 
+pointingClick2Stir.rect.top = displayRect.centery + 200
+pointingClick2Stir.scale.enable = true
+
+display.addProcess("pointingAnimation",() => {
+    if (bowl.stir.mode && !bowl.finish) {
+        pointingClick2Stir.show()
+    } else {
+        pointingClick2Stir.hide()
+    }
+    if (pointingClick2Stir.scale.value.w > 1) {
+        pointingClick2Stir.scale.value.w -= 0.07
+        pointingClick2Stir.scale.value.h -= 0.07
+    } else {
+        pointingClick2Stir.scale.value.h = 2.5
+        pointingClick2Stir.scale.value.w = 2.5
+    }
+})
 
 display.addProcess("stir",() => {
     if (bowl.scale.value.w > 1) {
@@ -209,7 +227,7 @@ const sign = new NodeObject(Sprites.dialog.sign,displayRect.copy())
 sign.rect.w -= 400
 sign.rect.centerx = displayRect.centerx
 
-const doughSceneNodes = new NodeGroup([table,bowl,sign,textGuide,nextSceneButton,bgmButton])
+const doughSceneNodes = new NodeGroup([table,bowl,sign,textGuide,nextSceneButton,bgmButton,pointingClick2Stir])
 export const doughScene = new Scene([doughSceneNodes,items],Sprites.bg.doughing.bg)
 
 doughScene.startEvent = () => {

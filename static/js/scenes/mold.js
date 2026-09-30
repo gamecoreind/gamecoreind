@@ -70,7 +70,7 @@ moldScene.startEvent = () => {
         if (moldRect.colliderect(bowl.rect) && !finish) {
             finish = true
             audio.correct.play()
-            textGuide.rewrite("ayo lanjut untuk memanggang bolu kemojo!")
+            textGuide.rewrite("ayo lanjut memanggang bolu kemojo!")
 
             bowl.rotation.value = 1
             bowl.rect.bottomright = mold.rect.center

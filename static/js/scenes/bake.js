@@ -72,7 +72,7 @@ const textGuideText = [
     "tutup oven",
     `saat oven di nyalakan, mari berhitung ${oven.cookDuration} detik sampai bolu kemojo nya matang!`
 ]
-const textGuide = new UITextView(new Rect(0,0,displayRect.width - 300,500),textGuideText[0],"55px Arial","white",80,0,10,"#0a0a0a",[0,0],["center","center"],"middle")
+const textGuide = new UITextView(new Rect(0,0,displayRect.width - 500,500),textGuideText[0],"55px Arial","white",80,0,10,"#0a0a0a",[0,0],["center","center"],"middle")
 textGuide.rect.y = -100
 textGuide.rect.centerx = displayRect.centerx
 textGuide.scale.enable = true

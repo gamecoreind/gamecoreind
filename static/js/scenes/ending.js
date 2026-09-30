@@ -7,8 +7,8 @@ import { bgmButton, display, displayRect } from "../root.js";
 import { Sprites } from "../sprites.js";
 
 const dialogue = [
-    "terima kasih ya sudah membantu ibu membuat kue bolu kemojo",
-    "ternyata membuat kue bolu kemojo itu menyenangkan ya!",
+    "terima kasih sudah membantu ibu membuat bolu kemojo",
+    "ternyata membuat bolu kemojo itu menyenangkan ya!",
 ]
 let dialogIndex = 0
 
