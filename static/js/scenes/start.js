@@ -10,6 +10,8 @@ import { audio, playOverlap } from "../audio.js"
 
 export const transitiongrid = new GridTransition()
 display.sceneTransition = transitiongrid
+
+
 const startButton = new UIButton(
     Sprites.ui.startButton.default,
     new Rect(0,500,700,300),
@@ -50,6 +52,45 @@ startButton.event.noevent = () => {
     }
 }
 
+class LeafDeco extends NodeObject {
+    constructor(rect,range,startDirection = 1) {
+        super(Sprites.bg.leaf,rect)
+        this.rotation.enable = true
+        this.animation = {
+            speed : 0.005,
+            currentSpeed : 0.005,
+            range : range,
+            direction : startDirection
+        }
+        this.rotation.value = this.animation.range[0]
+    }
+    update() {
+        if (this.animation.direction > 0) {
+            if (this.rotation.value < this.animation.range[1]) {
+                this.rotation.value += this.animation.currentSpeed
+                this.animation.currentSpeed *= 0.99
+            } else {
+                this.animation.direction = -1
+                this.animation.currentSpeed = this.animation.speed
+            }
+        } else if (this.animation.direction < 0) {
+            if (this.rotation.value > this.animation.range[0]) {
+                this.rotation.value -= this.animation.currentSpeed
+                this.animation.currentSpeed *= 0.99
+            } else {
+                this.animation.direction = 1
+                this.animation.currentSpeed = this.animation.speed
+            }
+        }
+    }
+}
+
+const leaf_1 = new LeafDeco(new Rect(-390,-250,700,700),[1.2,1.6])
+const leaf_2 = new LeafDeco(new Rect(0,0,700,700),[-1.6,-1.2])
+leaf_2.rect.center = displayRect.bottomright
+leaf_2.rect.y -= 100
+leaf_2.rect.x += 80
+
 /*
 const credit = new NodeObject(new Surface(650,100),new Rect(0,0,650,100))
 credit.sprite.context2D.fillStyle = "white"
@@ -62,6 +103,6 @@ const creditText = new UITextView(new Rect(logo.rect.right + 20,credit.rect.y + 
 */
 
 //const startSceneNodes = new NodeGroup([startButton,credit,logo,creditText])
-const startSceneNodes = new NodeGroup([startButton])
+const startSceneNodes = new NodeGroup([startButton,leaf_1,leaf_2])
 export const startScene = new Scene([startSceneNodes],Sprites.bg.start)
 

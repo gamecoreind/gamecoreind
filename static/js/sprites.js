@@ -4,6 +4,7 @@ import { imagePath } from "./path.js"
 export const Sprites = {
     bg:{
         start: await loadImage(imagePath("bg/start.png")),
+        leaf: await loadImage(imagePath("bg/leaf.png")),
         kitchen: await loadImage(imagePath("bg/kitchen.png")),
         tablecloth:await loadImage(imagePath("bg/tablecloth.png")),
         baking: {
