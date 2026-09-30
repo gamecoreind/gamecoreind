@@ -2,12 +2,19 @@
 
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgb(35, 35, 35);
+    background-color: rgb(20, 20, 20);
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
+}
+
+.canvasContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 canvas {
@@ -21,3 +28,12 @@ canvas {
     touch-action: none;
 }
 
+#loadingText {
+    color:white;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.hidden {
+    display: none;
+}
