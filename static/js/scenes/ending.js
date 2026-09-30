@@ -33,7 +33,7 @@ nextButton.event.mouseup = () => {
     textDialogue.rewrite(dialogue[dialogIndex])
 }
 
-const prevButton = new UITextView(new Rect(0,0,230,100),"sebelumnya >","bold 30px Arial","black",100,0)
+const prevButton = new UITextView(new Rect(0,0,230,100),"< sebelumnya","bold 30px Arial","black",100,0)
 prevButton.rect.left = textDialogue.rect.left
 prevButton.rect.centery = dialogButtonY
 prevButton.event.hover = () => {
