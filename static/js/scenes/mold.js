@@ -4,7 +4,7 @@ import { NodeGroup, NodeObject } from "../engine/node.js";
 import { Rect } from "../engine/rect.js";
 import { Scene } from "../engine/scene.js";
 import { UIObject, UITextView } from "../engine/ui.js";
-import { display, displayRect, nextSceneButton } from "../root.js";
+import { bgmButton, display, displayRect, nextSceneButton } from "../root.js";
 import { Sprites } from "../sprites.js";
 import { bakeScene } from "./bake.js";
 
@@ -35,7 +35,7 @@ const sign = new NodeObject(Sprites.dialog.sign,displayRect.copy())
 sign.rect.w -= 400
 sign.rect.centerx = displayRect.centerx
 
-const moldSceneGroup = new NodeGroup([sign,textGuide,mold,bowl,textGuide,nextSceneButton])
+const moldSceneGroup = new NodeGroup([sign,textGuide,mold,bowl,textGuide,nextSceneButton,bgmButton])
 export const moldScene = new Scene([moldSceneGroup],Sprites.bg.tablecloth)
 
 const speedAnim = {rotate:0.05,move:40}

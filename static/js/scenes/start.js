@@ -2,7 +2,7 @@ import { NodeGroup, NodeObject } from "../engine/node.js"
 import { Scene } from "../engine/scene.js"
 import { UIButton, UITextView } from "../engine/ui.js"
 import { Sprites } from "../sprites.js"
-import { display , displayRect } from "../root.js"
+import { bgmButton, display , displayRect } from "../root.js"
 import { Rect } from "../engine/rect.js"
 import { openingScene, showDialogueButton, textDialogue } from "./opening.js"
 import { GridTransition } from "../engine/transition.js"
@@ -61,6 +61,6 @@ const creditText = new UITextView(new Rect(logo.rect.right + 20,credit.rect.y + 
 */
 
 //const startSceneNodes = new NodeGroup([startButton,credit,logo,creditText])
-const startSceneNodes = new NodeGroup([startButton])
+const startSceneNodes = new NodeGroup([startButton,bgmButton])
 export const startScene = new Scene([startSceneNodes],Sprites.bg.start)
 

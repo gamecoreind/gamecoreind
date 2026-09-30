@@ -5,7 +5,7 @@ import { NodeGroup, NodeObject } from "../engine/node.js";
 import { Rect } from "../engine/rect.js";
 import { Scene } from "../engine/scene.js";
 import { UIObject, UITextView } from "../engine/ui.js";
-import { display, displayRect, nextSceneButton } from "../root.js";
+import { bgmButton, display, displayRect, nextSceneButton } from "../root.js";
 import { Sprites } from "../sprites.js";
 import { moldScene } from "./mold.js";
 import { transitiongrid } from "./start.js";
@@ -209,7 +209,7 @@ const sign = new NodeObject(Sprites.dialog.sign,displayRect.copy())
 sign.rect.w -= 400
 sign.rect.centerx = displayRect.centerx
 
-const doughSceneNodes = new NodeGroup([table,bowl,sign,textGuide,nextSceneButton])
+const doughSceneNodes = new NodeGroup([table,bowl,sign,textGuide,nextSceneButton,bgmButton])
 export const doughScene = new Scene([doughSceneNodes,items],Sprites.bg.doughing.bg)
 
 doughScene.startEvent = () => {

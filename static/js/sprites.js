@@ -32,9 +32,14 @@ export const Sprites = {
             hover: await loadImage(imagePath("ui/next/hover.png")),
             press: await loadImage(imagePath("ui/next/press.png")),
         },
+        bgm:{
+            play: await loadImage(imagePath("ui/bgm/play.png")),
+            pause: await loadImage(imagePath("ui/bgm/pause.png"))
+        },
         bakeButton: await loadImage(imagePath("ui/bake.png")),
         logo : await loadImage(imagePath("ui/logo.png")),
         back : await loadImage(imagePath("ui/back.png"))
+
 
     },
     numbers:{

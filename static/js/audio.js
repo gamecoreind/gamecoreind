@@ -8,6 +8,7 @@ export const audio = {
     ovenStart : new Audio("/static/res/sfx/ovenStart.mp3"),
     correctItem : new Audio("/static/res/sfx/correctItem.mp3"),
     dialogueButton : new Audio("/static/res/sfx/dialogueButton.mp3"),
+    tada : new Audio("/static/res/sfx/tada.mp3"),
 }
 
 export function playOverlap(audio) {

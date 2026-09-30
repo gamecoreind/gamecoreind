@@ -1,8 +1,9 @@
 import { audio , playOverlap} from "./audio.js"
 import { Display } from "./engine/display.js"
 import { Vector2 } from "./engine/math.js"
+import { NodeObject } from "./engine/node.js"
 import { Rect } from "./engine/rect.js"
-import { UIButton } from "./engine/ui.js"
+import { UIButton, UIObject } from "./engine/ui.js"
 import { Sprites } from "./sprites.js"
 
 export const display = new Display(document.getElementById("canvas"))
@@ -66,3 +67,29 @@ class NextSceneButton extends UIButton {
     
 }
 export const nextSceneButton = new NextSceneButton()
+
+class BGMButton extends UIObject {
+    constructor() {
+        super(Sprites.ui.bgm.play,new Rect(20,20,150,150))
+        this.bgm = new Audio("/static/res/bgm/bgm_0.mp3")
+        this.bgm.loop = true
+        this.play()
+        this.event.mouseup = () => {
+            if (this.bgm.paused) {
+                this.play()
+            } else {
+                this.pause()
+            }
+        }
+    }
+    play() {
+        this.bgm.play()
+        this.sprite = Sprites.ui.bgm.play
+    }
+    pause() {
+        this.bgm.pause()
+        this.sprite = Sprites.ui.bgm.pause
+    }
+}
+
+export const bgmButton = new BGMButton()

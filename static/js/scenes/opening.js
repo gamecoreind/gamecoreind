@@ -2,7 +2,7 @@ import { NodeGroup, NodeObject } from "../engine/node.js"
 import { Scene } from "../engine/scene.js"
 import { UITextView } from "../engine/ui.js"
 import { Sprites } from "../sprites.js"
-import { displayRect , nextSceneButton } from "../root.js"
+import { bgmButton, displayRect , nextSceneButton } from "../root.js"
 import { Rect } from "../engine/rect.js"
 import { doughScene } from "./dough.js"
 import { audio, playOverlap } from "../audio.js"
@@ -99,5 +99,5 @@ nextSceneButton.hide()
 nextSceneButton.nextScene = doughScene
 
 // place order
-const openingSceneNodes = new NodeGroup([fakeStartButton,kitchenBG,char,textDialogue,nextButton,prevButton,nextSceneButton])
+const openingSceneNodes = new NodeGroup([fakeStartButton,kitchenBG,char,textDialogue,nextButton,prevButton,nextSceneButton,bgmButton])
 export const openingScene = new Scene([openingSceneNodes],Sprites.bg.start)

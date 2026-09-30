@@ -3,7 +3,7 @@ import { NodeGroup, NodeObject } from "../engine/node.js";
 import { Rect } from "../engine/rect.js";
 import { Scene } from "../engine/scene.js";
 import { UIButton, UITextView } from "../engine/ui.js";
-import { display, displayRect } from "../root.js";
+import { bgmButton, display, displayRect } from "../root.js";
 import { Sprites } from "../sprites.js";
 
 const dialogue = [
@@ -82,5 +82,5 @@ display.addProcess("dialogueController",() => {
     }
 })
 
-const endingSceneGroup = new NodeGroup([characterDialog,textDialogue,backToStartButton,prevButton,nextButton])
+const endingSceneGroup = new NodeGroup([characterDialog,textDialogue,backToStartButton,prevButton,nextButton,bgmButton])
 export const endingScene = new Scene([endingSceneGroup],Sprites.bg.kitchen)

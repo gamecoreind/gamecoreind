@@ -4,7 +4,7 @@ import { NodeGroup, NodeObject } from "../engine/node.js";
 import { Rect } from "../engine/rect.js";
 import { Scene } from "../engine/scene.js";
 import { UIObject, UITextView } from "../engine/ui.js";
-import { display, displayRect, nextSceneButton } from "../root.js";
+import { bgmButton, display, displayRect, nextSceneButton } from "../root.js";
 import { Sprites } from "../sprites.js";
 import { cuttingScene } from "./cutv2.js";
 
@@ -77,7 +77,7 @@ textGuide.rect.y = -100
 textGuide.rect.centerx = displayRect.centerx
 textGuide.scale.enable = true
 
-const bakeSceneGroup = new NodeGroup([bakeSceneDisplay,mold,readyView,bakeButton,textGuide,nextSceneButton])
+const bakeSceneGroup = new NodeGroup([bakeSceneDisplay,mold,readyView,bakeButton,textGuide,nextSceneButton,bgmButton])
 export const bakeScene = new Scene([bakeSceneGroup])
 
 let sceneStart = 0
@@ -132,7 +132,7 @@ function bakeProcessScene() {
         // finish
         if (oven.finish) {
             if (!oven.doorOpened && oven.clicked) {
-                playOverlap(audio.ovenClick)
+                audio.tada.play()
                 oven.doorOpened = true
             } else if (oven.doorOpened) {
                 if (!readyView.spawn) {
