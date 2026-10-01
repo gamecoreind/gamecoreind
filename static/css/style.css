@@ -32,6 +32,8 @@ canvas {
     color:white;
     font-weight: bold;
     font-size: 2rem;
+    pointer-events: none;
+    user-select: none;
 }
 
 .hidden {
