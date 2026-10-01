@@ -9,13 +9,12 @@ import { GridTransition } from "../engine/transition.js"
 import { audio, playOverlap } from "../audio.js"
 
 export const transitiongrid = new GridTransition()
-bgmButton.play()
+
 display.sceneTransition = transitiongrid
 const startButton = new UIButton(
     Sprites.ui.startButton.default,
     new Rect(0,500,700,300),
     () => {
-        bgmButton.play()
         //playOverlap(audio.transition)
         openingScene.startEvent = () => {
             display.addProcess("toOpening",() => {
@@ -113,3 +112,8 @@ startScene.startEvent = () => {
     document.getElementById("canvas").classList.remove("hidden")
 }
 
+bgmButton.pause()
+document.addEventListener("pointerdown",() => {
+    bgmButton.init = true
+    bgmButton.play()
+},{ once: true })
