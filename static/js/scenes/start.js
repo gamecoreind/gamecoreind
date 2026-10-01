@@ -9,9 +9,8 @@ import { GridTransition } from "../engine/transition.js"
 import { audio, playOverlap } from "../audio.js"
 
 export const transitiongrid = new GridTransition()
+bgmButton.play()
 display.sceneTransition = transitiongrid
-
-
 const startButton = new UIButton(
     Sprites.ui.startButton.default,
     new Rect(0,500,700,300),
@@ -103,10 +102,14 @@ const creditText = new UITextView(new Rect(logo.rect.right + 20,credit.rect.y + 
 */
 
 //const startSceneNodes = new NodeGroup([startButton,credit,logo,creditText])
-const startSceneNodes = new NodeGroup([startButton,leaf_1,leaf_2])
+const startSceneNodes = new NodeGroup([startButton,leaf_1,leaf_2,bgmButton])
 export const startScene = new Scene([startSceneNodes],Sprites.bg.start)
+
+const loadingText = document.getElementById("loadingText")
+
 startScene.startEvent = () => {
-    document.getElementById("loadingText").classList.add("hidden")
+    loadingText.classList.add("hidden")
+    display.deleteProcess("loadingAnimation")
     document.getElementById("canvas").classList.remove("hidden")
 }
 
